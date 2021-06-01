@@ -1,0 +1,28 @@
+{% extends "includes/header_new.html" %}
+
+{% load socialaccount%}
+{% providers_media_js %}
+
+{% block content %}
+      <!--*! start of the login/signup form template  -->
+
+      <div class="container my-3"> 
+         <div class="row">
+            <div class="card mx-auto col-lg-6 col-md-10 col-sm-12">
+               <div class="card-body">
+                  <h1 class="text-center font-weight-light"><b>New User!! Register Now</b></h1>
+                  <form method="POST">
+						{%csrf_token%}
+						{{form.as_p}}
+						<div class="row" style="justify-content: center;">
+							<button type="submit" class="btn btn-primary">Register</button>   
+						</div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- *! end of the login/signup template -->
+{%endblock%}
+

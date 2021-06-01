@@ -1,0 +1,48 @@
+{% extends "includes/header_new.html" %}
+
+{%block content%}
+	{%load static%}
+	<!-- *! card for courses -->
+	{% for course in var%}
+	<div class="container-fluid my-2" >
+		<div class="card" style="border-style: none;">
+			<div class="row">
+				<div class="col-md-4">
+					<!-- image -->
+					<img src="{{course.course_thumbnail.url}}" alt="course image" style="height: 200px; width: 100%; justify-content: center;">
+				</div>
+				<div class="col-md-4" style="justify-content: center;">
+					<div class="row" style="justify-content: center;">
+						<!-- Name of course -->
+						<h4 class="text-muted">{{course.course_name}}</h4>
+					</div>
+					<div class="row" style="justify-content: center;">
+						<!-- Instructor -->
+						<h4 class="text-muted"><small><strong>Instructor: </strong></small> &nbsp; </h4>
+						<h4> <small> {{course.instructor_name}} </small></h4>
+					</div>
+					<div class="row" style="justify-content: center;">
+						<!-- Medium of instruction -->
+						<h4 class="text-muted"> <small><strong>Medium of Instruction:</strong> </small> &nbsp; </h4>
+						<h4> <small>English </small></h4>
+					</div>
+					<div class="row" style="justify-content: center;">
+						<!-- Medium of instruction -->
+						<h4 class="text-muted"> <small><strong>Time for completion (Approx): </strong></small>  &nbsp; </h4>
+						<h4> <small>{{course.completion_time}} </small></h4>
+					</div>
+					<div class="row my-1" style="justify-content: center;">
+						<!-- button -->
+						<button type="submit" onclick="location.href = 'content/enroll/{{course.course_slug}}';" id="myButton" class="btn btn-primary" >Enroll</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="position: relative; display: inline-block; margin-left: 3px; margin-right: 3px; width: 100%; border-bottom: 1px solid #7A7A7A;"></div>
+	</div>
+	{%endfor%}
+{%endblock%}
+
+
+
+

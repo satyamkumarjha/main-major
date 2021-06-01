@@ -1,0 +1,14 @@
+{% extends "includes/header.html" %}
+{%block content%}
+    {%for t in tuts%}
+        <!--<div class="container">
+            <h3 class="text-center mt-2 mb-2">{{t.name}}</h3>
+            <video class="embed-responsive embed-responsive-16by9" controls="controls" >
+                <source src="{{t.tutorial_video.url}}" type="video/mp4" />
+            </video>
+        </div>-->
+        <video width="320" height="240" controls>
+            <source src="{{t.tutorial_video.url}}" type="video/mp4">
+        </video>
+    {%endfor%}
+{%endblock%}

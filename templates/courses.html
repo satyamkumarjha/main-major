@@ -1,0 +1,54 @@
+{% extends "includes/header.html" %}
+
+{%block content%}
+    <!-- Courses -->
+    {%load static%}
+    <section id="courses">
+        <div class="container">
+             <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                       <div class="section-title">
+                            <h2>Popular Courses <small>Upgrade your skills with newest courses</small></h2>
+                       </div>
+                       <div class="owl-carousel owl-theme owl-courses">
+                              {% for course in var%}
+                                   <div class="col-md-4 col-sm-4">
+                                        <div class="item">
+                                             <div class="courses-thumb">
+                                                  <div class="courses-top">
+                                                       <div class="courses-image">
+                                                            <!--<img src="images/courses-image1.jpg" class="img-responsive" alt="">-->
+                                                            <img src="{{course.course_thumbnail.url}}" class="img-responsive" alt="">
+                                                       </div>
+                                                       <div class="courses-date">
+                                                            <span><i class="fa fa-calendar"></i> 12 / 9 / 2020</span>
+                                                            <span><i class="fa fa-clock-o"></i> 3.5 Hours</span>
+                                                       </div>
+                                                  </div>
+     
+                                                  <div class="courses-detail">
+                                                       <h3><a href="content/{{course.course_slug}}"> {{course.course_name}} </a></h3>
+                                                       <p>{{course.course_info}}</p>
+                                                  </div>
+     
+                                                  <div class="courses-info">
+                                                       <div class="courses-author">
+                                                            <!--<img src="images/author-image1.jpg" class="img-responsive" alt="">-->
+                                                            
+                                                            <img src="{{var.course.instructor_img.url}}" class="img-responsive" alt="">
+                                                            <span>{{course.instructor_name}}</span>
+                                                       </div>
+                                                       <div class="courses-price">
+                                                            <a href="content/enroll/{{course.course_slug}}"><span>Enroll</span></a>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              {% endfor %}
+                       </div>
+                    </div>
+             </div>
+        </div>
+   </section>
+{%endblock%}

@@ -1,0 +1,98 @@
+{% extends "includes/header_new.html" %}
+
+{%block content%}
+
+
+{%load static%}
+
+		<div class="row" style="position: relative; margin: 0px 0; padding: 30px 0;">
+			<div class="container">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators" style="bottom: -35px;">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="background-color: black;"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1" style="background-color: black;"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2" style="background-color: black;"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div style="width: 150px; height: 150px; margin: auto; overflow: hidden; border: 2px solid #fff; border-radius: 50%;">
+							<img src= "{{start.reviewer_img.url}}" alt="{{start.slide}}" style="width: 100%;">
+							</div>
+							<div class="carousel-caption" style="position: static; padding-top: 5px; padding-bottom: 15px;">
+							<h3 style="color: black;">{{start.reviewer_name}}</h3>
+							<h7 style="color: rgb(0, 4, 243);">{{start.reviewer_about}}</h7>
+							<p style="color: black;">{{start.review_para}}</p>
+							</div>
+						</div>
+						{% for r in rev%}
+							<div class="carousel-item">
+								<div style="width: 150px; height: 150px; margin: auto; overflow: hidden; border: 2px solid #fff; border-radius: 50%;">
+								<img src= "{{r.reviewer_img.url}}" alt="{{r.slide}}" style="width: 100%;">
+								</div>
+								<div class="carousel-caption" style="position: static; padding-top: 5px; padding-bottom: 15px;">
+								<h3 style="color: black;">{{r.reviewer_name}}</h3>
+								<h7 style="color: rgb(0, 4, 243);">{{r.reviewer_about}}</h7>
+								<p style="color: black;">{{r.review_para}}</p>
+								</div>
+							</div>
+						{% endfor %}
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" > 
+						<span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black;"></span>
+						<span class="sr-only" >Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true" style="background-color: black;"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- * the join for free section -->
+		<div class="container mx-auto" style="padding: 0px; margin: 0px;">
+			<div class="row my-6">
+				<div class=" col-md-6">
+					<img src= "{%static 'images/stand-out-from-the-rest.jpg'%}" alt="" style="height: 300px; width: 500px; margin-left: auto; margin-right: auto; border-radius: 5%;">
+				</div>
+				<div class="col-md-6">
+					<div class="row my-3">
+						<h3 class="mx-auto" style="color: rgb(0, 0, 0);">Stand out from the rest</h3>
+					</div>
+					<div class="row my-5">
+						<h4 class="mx-auto" style="color: rgb(0, 0, 0);">Take the next step towards your professional career</h4>
+					</div>
+					<div class="row">
+						<!-- *! would have redirect onclick to signup form -->
+						
+						<button type="submit" onclick="location.href = 'register-student/';" id="myButton" class="btn btn-primary mx-auto" >Join For Free</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- * Learn more about the courses offered section -->
+		<div class="container mx-auto" style="padding: 0px; ">
+			<div class="row" style="padding-top: 20px; padding-bottom: 20px;">
+			<div class=" col-md-6">
+				<div class="row my-3">
+					<h3 class="mx-auto" style="color: rgb(0, 0, 0);">Learn What you Want</h3>
+				</div>
+				<div class="row my-5">
+					<h4 class="mx-auto" style="color: rgb(0, 0, 0);">Take the Courses that Matter</h4>
+				</div>
+				<div class="row my-3">
+					<!-- *! would have redirect onclick to signup form -->
+					<button type="submit" onclick="location.href = 'content/';" id="myButton" class="btn btn-primary mx-auto" >Learn More</button>
+				</div>
+			</div>
+			<div class="col-md-6 ">
+				<img src= "{%static 'images/learn-what-you-like.jpg'%}" alt="image" style="height: 300px; width: 500px; padding-right: 10px; border-radius: 5%;">
+			</div>
+			</div>
+		</div>
+
+
+
+{%endblock%}
