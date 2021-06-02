@@ -107,4 +107,4 @@ def googleLogin(request):
 
 def signout(request):
     logout(request)
-    return HttpResponseRedirect('')
+    return HttpResponseRedirect('/login/')
