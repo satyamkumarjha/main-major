@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from content.models import course_reviews
-from django.contrib.auth.models import AnonymousUser
 
 # Create your views here.
 
