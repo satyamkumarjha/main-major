@@ -54,7 +54,7 @@
 					{% if log %}
 					<ul class="navbar-nav mt-0 mt-lg-0">
 						<li class="nav-item">
-							<a class="nav-link" href="#">{{u}} - Logout</a>
+							<a class="nav-link" href="{% url 'login:site-logout' %}">{{u}} - Logout</a>
 						</li>
 					</ul>
 					{%endif%}

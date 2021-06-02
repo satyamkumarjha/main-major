@@ -25,5 +25,6 @@ urlpatterns = [
     path('register/',views.register_student,name="register"),
     path('register-teacher/',views.register_teacher,name="register"),
     path('register-student/',views.register_student,name="register"),
+    path('logout',views.logout,name="site-logout"),
     #path('googleauth',views.googleLogin,name="googleLogin")
 ]
