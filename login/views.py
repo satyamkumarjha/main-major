@@ -13,6 +13,9 @@ from django.shortcuts import HttpResponseRedirect
 
 
 def login_request(request):
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True    
     if request.method == "POST":
         form = LoginForm(request,data = request.POST)
         if form.is_valid():
@@ -28,9 +31,12 @@ def login_request(request):
         else:
             messages.error(request,"Invalid Username or Password")
     form = LoginForm
-    return render(request,"login_form_new.html",context={"form":form})
+    return render(request,"login_form_new.html",context={"form":form,'log':loggen_in, 'u':request.user})
 
 def register_student(request):
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True       
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -47,7 +53,7 @@ def register_student(request):
             for msg in form.error_messages:
                 messages.error(request,f"{msg}: form.error_messages[msg]")
     form = RegisterForm
-    return render(request,"signup_form_new.html",context={"form":form})
+    return render(request,"signup_form_new.html",context={"form":form'log':loggen_in, 'u':request.user})
 
 def register_teacher(request):
     if request.method == "POST":
@@ -101,4 +107,4 @@ def googleLogin(request):
 
 def signout(request):
     logout(request)
-    return HttpResponseRedirect('/login/')
+    return HttpResponseRedirect('')
