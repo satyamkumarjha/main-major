@@ -41,7 +41,7 @@ def register_student(request):
             temp = student_details(username=user)
             temp.save()
             print(temp.username)
-            return redirect('dashboard:view_dashboard')
+            return redirect('/dashboard/')
         else:
             for msg in form.error_messages:
                 messages.error(request,f"{msg}: form.error_messages[msg]")
