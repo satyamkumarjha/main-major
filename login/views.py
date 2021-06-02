@@ -6,6 +6,7 @@ from .registerForm import RegisterForm
 from django.contrib import messages
 from dashboard.models import student_details
 from django.contrib.auth.models import User
+from content.models import course_reviews
 # Create your views here.
 
 
@@ -95,3 +96,14 @@ def register(request):
 
 def googleLogin(request):
     return render(request, "googleLogin.html")
+
+def signout(request):
+    logout(request)
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True
+    rev = []
+    for r in course_reviews.objects.all():
+        if r != course_reviews.objects.first():
+            rev.append(r)
+    return render(request,'home_new.html',context={'rev':rev,'start':course_reviews.objects.first(),'log':loggen_in, 'u':request.user})
