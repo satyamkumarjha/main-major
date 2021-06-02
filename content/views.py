@@ -28,6 +28,9 @@ def single_slug(request,single_slug):
             if c.course_slug == single_slug:
                 current_course = c.course_name
                 instr = c.instructor_name
+                course_details = c.course_info
+
+
         current_tutorials = []
         for t in tutorials.objects.all():
             print(current_course,t.course_name)
@@ -39,7 +42,7 @@ def single_slug(request,single_slug):
                 instructor_details = i
         #print('current course:',current_course)
         #print(current_tutorials)
-        return render(request,'tutorials.html',context={'tuts':current_tutorials,'ins':instructor_details,'course':current_course})
+        return render(request,'tut_display.html',context={'tuts':current_tutorials,'instructor':instr,'course':current_course,'course_details':course_details})
 
 def detailed_single_slug(request,single_slug):
     courses = [i.course_slug for i in course.objects.all()]
