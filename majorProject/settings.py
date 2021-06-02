@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'rest_framework',
-    'storages',
 
     #my apps
     'login',
@@ -168,7 +167,7 @@ django_heroku.settings(locals())
 STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
 
 #S3 BUCKETS CONFIG
-
+'''
 AWS_ACCESS_KEY_ID = 'ASIAQZYKINMVPXKJDFIW'
 AWS_SECRET_ACCESS_KEY = 'pnPqUkyZ3OfNork46cMtcYhFwqjq1wGu6A8oG7PA'
 AWS_STORAGE_BUCKET_NAME = 'team-17-major-bucket'
@@ -176,7 +175,7 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
+'''
 
 
 '''
