@@ -41,7 +41,7 @@ def register_student(request):
             temp = student_details(username=user)
             temp.save()
             print(temp.username)
-            return redirect('dashboard.view_dashboard')
+            return redirect('dashboard:view_dashboard')
         else:
             for msg in form.error_messages:
                 messages.error(request,f"{msg}: form.error_messages[msg]")
@@ -76,6 +76,7 @@ def register(request):
             for msg in form.error_messages:
                 messages.error(request,f"{msg}: form.error_messages[msg]")
     form = RegisterForm
+
     return render(request,"register.html",context={"form":form})
 
 #def register_teacher(request):
