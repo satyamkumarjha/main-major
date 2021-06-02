@@ -33,3 +33,6 @@ class instructor(models.Model):
     instructor_name = models.CharField(max_length=300)
     instructor_tagline = models.TextField()
     instructor_img = models.ImageField(blank=True)
+    instructor_college = models.CharField(max_length=300,blank=True)
+    instructor_specialization = models.CharField(max_length=300,blank=True)
+    instructor_email = models.CharField(max_length=300,blank=True)
