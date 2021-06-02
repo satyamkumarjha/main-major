@@ -53,7 +53,7 @@ def register_student(request):
             for msg in form.error_messages:
                 messages.error(request,f"{msg}: form.error_messages[msg]")
     form = RegisterForm
-    return render(request,"signup_form_new.html",context={"form":form'log':loggen_in, 'u':request.user})
+    return render(request,"signup_form_new.html",context={"form":form,'log':loggen_in, 'u':request.user})
 
 def register_teacher(request):
     if request.method == "POST":
