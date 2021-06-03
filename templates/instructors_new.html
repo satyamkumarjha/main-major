@@ -3,24 +3,24 @@
 {%block content%}
 	{%load static%}
 
-    {% for i in inst%}
+    {% for i,c in inst%}
     <div class="container my-5">
 		<div class="card">
 			<div class="row">
 				<div class="col-md-3 col-sm-8 mx-auto" style="padding: 0px;">
-					<img src="{{i.key.instructor_img.url}}" class="card-img-top img-fluid" style="border-radius: 5%;"  alt="profile-picture">
+					<img src="{{i.instructor_img.url}}" class="card-img-top img-fluid" style="border-radius: 5%;"  alt="profile-picture">
 				</div>
 				<div class="col-md-9 col-sm-12 " style="text-align: center;">
-					<h3 class="mt-1 mb-2">{{i.key.instructor_name}}</h3>
+					<h3 class="mt-1 mb-2">{{i.instructor_name}}</h3>
 					<hr class="bg-primary mt-0 w-25">
 					<div class="row my-1">
 						<div class="col-sm-6">
 							<p class="font-weight-bold" style="margin: 0px;">Qualification:</p>
-								<h6 class=" text-muted" style="margin: 0px;">{{i.key.instructor_specialization}}</h6>
+								<h6 class=" text-muted" style="margin: 0px;">{{i.instructor_specialization}}</h6>
 						</div>
 						<div class="col-sm-6">
 							<p class="font-weight-bold" style="margin: 0px;">Email:</p>
-								<h6 class="text-muted" style="margin: 0px;">{{i.key.instructor_email}}</h6>
+								<h6 class="text-muted" style="margin: 0px;">{{i.instructor_email}}</h6>
 						</div>
 					</div>
 					<hr class="bg-primary mx-5">
@@ -28,7 +28,7 @@
 						<div class="col-sm-12">
 							<p class="font-weight-bold" style="margin: 0px;">Courses Offered:</p>
 							<ul style="margin-bottom: 0px;">
-                                {%for ele in i.val%}
+                                {%for ele in c%}
                                     <li style="list-style: none;"><h6 class=" text-muted my-1" style="margin: 0px;">{{ele}}</h6></li>
                                 {%endfor%}
 							</ul>
