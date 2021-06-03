@@ -7,11 +7,11 @@ def teacherView(request):
     loggen_in = False
     if request.user.is_authenticated:
         loggen_in = True
-    course_list = []
+    teacher_dict = {}
     for i in instructor.objects.all():
         new_list = []
         for c in course.objects.all():
             if c.instructor_name == i.instructor_name:
                 new_list.append(c.course_name)
-        course_list.append(new_list)
-    return render(request,'instructors_new.html',{'inst':instructor.objects.all(),'courses':course_list,'log':loggen_in, 'u':request.user})
+        teacher_dict[i] = new_list
+    return render(request,'instructors_new.html',{'inst':teacher_dict.items(),'log':loggen_in, 'u':request.user})
