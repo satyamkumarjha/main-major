@@ -30,109 +30,51 @@
  <div class="row">
     <div class="card offset-lg-1 col-lg-10 col-md-12 col-sm-12">
        <div class="card-body mx-auto">
-          <h1 class="text-center font-weight-light"><b>QUIZ</b></h1>
-          <form>
+          <h1 class="text-center font-weight-light"><b>QUIZ: {{title}}</b></h1>
+          <form method="POST" action="/test/score/{{single_slug}}/">
+            {% csrf_token %}
+            {% for q in question %}
              <div class="row my-5">
                 <div class="form-group">
                    <div class="row ">
                       <div class="mx-auto">
-                         <label><b>Q1: this one is a mulyiple correct choice mcq so many options can be selected?</b></label>
+                         <label><b>Que {{forloop.counter}}: {{q.quiz_question}}</b></label>
                       </div>
                    </div>
                    <div class="row">
                       <div class="mx-auto">
-                         <img src="../img-1.jpg" alt="#question image">
+                         <img src="{{q.picture}}" alt="#question image">
                       </div>
                    </div>
                    <div class="row">
                       <div class="col-md-6 col.sm-12">
                          <div class="form-check">
                             <label class="form-check-label" >
-                               <input class="form-check-input" type="checkbox" value="option1"><b>Option1</b>
+                               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"><b>{{q.option_one}}</b>
                             </label>
                          </div>
                          <div class="form-check">
                             <label class="form-check-label" >
-                               <input class="form-check-input" type="checkbox" value="option1"><b>Option2</b>
+                               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option1"><b>{{q.option_two}}</b>
                             </label>
                          </div>
                       </div>
                       <div class="col-md-6 col.sm-12">
                          <div class="form-check">
                             <label class="form-check-label" >
-                               <input class="form-check-input" type="checkbox" value="option1"><b>Option3</b>
+                               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option1"><b>{{q.option_three}}</b>
                             </label>
                          </div>
                          <div class="form-check">
                             <label class="form-check-label" >
-                               <input class="form-check-input" type="checkbox" value="option1"><b>Option4</b>
+                               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option1"><b>{{q.option_four}}</b>
                             </label>
                          </div>
                       </div>
                    </div>
                 </div>
              </div>
-             <div class="row my-5">
-                <div class="form-group">
-                   <div class="row ">
-                      <div class="mx-auto">
-                         <label><b>Q1: this one is a single correct choice mcq so only one option can be selected?</b></label>
-                      </div>
-                   </div>
-                   <div class="row">
-                      <div class="mx-auto">
-                         <img src="../img-1.jpg" alt="#question image">
-                      </div>
-                   </div>
-                   <div class="row">
-                      <div class="col-md-6 col.sm-12">
-                         <div class="form-check">
-                            <label class="form-check-label" >
-                               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"><b>Option1</b>
-                            </label>
-                         </div>
-                         <div class="form-check">
-                            <label class="form-check-label" >
-                               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option1"><b>Option2</b>
-                            </label>
-                         </div>
-                      </div>
-                      <div class="col-md-6 col.sm-12">
-                         <div class="form-check">
-                            <label class="form-check-label" >
-                               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option1"><b>Option3</b>
-                            </label>
-                         </div>
-                         <div class="form-check">
-                            <label class="form-check-label" >
-                               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option1"><b>Option4</b>
-                            </label>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-             <div class="row my-5">
-                <div class="form-group">
-                   <div class="row ">
-                      <div class="mx-auto">
-                         <label><b>Q1: this one is a numerical value type so only numerical value shpuld be input?</b></label>
-                      </div>
-                   </div>
-                   <div class="row">
-                      <div class="mx-auto">
-                         <img src="../img-1.jpg" alt="#question image">
-                      </div>
-                   </div>
-                   <div class="row">
-                         <div class="form-check">
-                            <label class="form-check-label">
-                               <input class="form-check-input" type="text" name="written_answer" id="written_answer" placeholder="Write your answer here">
-                            </label>
-                         </div>
-                   </div>
-                </div>
-             </div>
+             {%endfor%}
              <div class="form-group">
                 <div class="row">
                    <div class="mx-auto">
