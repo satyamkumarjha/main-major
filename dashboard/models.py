@@ -13,7 +13,7 @@ class student_details(models.Model):
     branch = models.CharField(max_length=300,null=True,blank=True)
     email = models.CharField(max_length=300,null=True,blank=True)
     phone = models.CharField(max_length=11,null=True,blank=True)
-    photo = models.ImageField(blank = True,null=True,)
+    photo = models.ImageField(blank = True,null=True)
     courses = models.TextField(null=True,blank=True)
 
 class quiz_scores(models.Model):
