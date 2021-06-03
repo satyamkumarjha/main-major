@@ -8,7 +8,6 @@ def teacherView(request):
     if request.user.is_authenticated:
         loggen_in = True
     course_list = []
-    course_list.append([])
     for i in instructor.objects.all():
         new_list = []
         for c in course.objects.all():

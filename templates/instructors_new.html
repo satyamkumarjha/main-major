@@ -3,7 +3,7 @@
 {%block content%}
 	{%load static%}
 
-    {% for i in inst%}
+    {% for i,c in inst_and_courses%}
     <div class="container my-5">
 		<div class="card">
 			<div class="row">
@@ -28,7 +28,7 @@
 						<div class="col-sm-12">
 							<p class="font-weight-bold" style="margin: 0px;">Courses Offered:</p>
 							<ul style="margin-bottom: 0px;">
-                                {%for ele in courses.{{forloop.counter}}%}
+                                {%for ele in c%}
                                     <li style="list-style: none;"><h6 class=" text-muted my-1" style="margin: 0px;">{{ele}}</h6></li>
                                 {%endfor%}
 							</ul>
