@@ -16,4 +16,4 @@ def homepage(request):
     return render(request,'home_new_new.html',context={'rev':rev,'start':course_reviews.objects.first(),'log':loggen_in, 'u':request.user})
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'contact_us.html')
