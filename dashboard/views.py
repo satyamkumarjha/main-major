@@ -24,7 +24,5 @@ def view_dashboard(request):
     for student in student_details.objects.all():
         if student.username == current_user:
             target_student = student
-    print(target_student)
-    print(enrolled)
-    print(quizes)
+
     return render(request,'student-dashboard.html',{'student':target_student,'courses':enrolled, 'quizes' : quizes,'log':loggen_in, 'u':request.user})

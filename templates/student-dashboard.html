@@ -134,29 +134,15 @@
                               <div class="row mx-2">
                                  <div class="col-md-5 offset-md-1 my-3">
                                     <p class="font-weight-bold" style="display: inline;">Course: </p>
-                                    <h6 class="text-muted" style="display: inline;"> Music Synthesizer</h6>
+                                    <h6 class="text-muted" style="display: inline;"> {{enrolled.course_name}}</h6>
                                  </div>
                                  <div class="col-md-5 offset-md-1 my-3">
                                     <p class="font-weight-bold" style="display: inline;">{{q.quiz_name}} </p>
-                                    <h6 class="text-muted" style="display: inline;">12345</h6>
                                  </div>
                               </div>
                               <div class="row mx-2">
                                  <div class="col-md-5 offset-md-1 my-3">
-                                    <p class="font-weight-bold" style="display: inline;">No. of Questions: </p>
-                                    <h6 class="text-muted" style="display: inline;">15</h6>
-                                 </div>
-                                 <div class="col-md-5 offset-md-1 my-3">
-                                    <p class="font-weight-bold" style="display: inline;">Marks Obtained: </p>
-                                    <h6 class="text-muted" style="display: inline;">10</h6>
-                                 </div>
-                              </div>
-                              <div class="row mx-2">
-                                 <div class="col-md-5 offset-md-1 my-3">
-                                    <a href="#" class="btn btn-primary">See Detailed Analysis</a>
-                                 </div>
-                                 <div class="col-md-5 offset-md-1 my-3">
-                                    <a href="/test/{{q.quiz_slug}}" class="btn btn-success">Attempt Again</a>
+                                    <a href="/test/{{q.quiz_slug}}" class="btn btn-success">Attempt</a>
                                  </div>
                               </div>
                            </div>
