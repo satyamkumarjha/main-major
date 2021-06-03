@@ -9,8 +9,8 @@ def teacherView(request):
         loggen_in = True
     course_list = [[] for i in range(instructor.objects.count())]
     counter = 1
-    for i in instructor:
-        for c in course:
+    for i in instructor.objects.all():
+        for c in course.objects.all():
             if c.instructor_name == i.instructor_name:
                 course_list[counter].append(c.course_name)
         counter+=1
