@@ -16,9 +16,9 @@ def view_dashboard(request):
     quizes = []
     main_map = {}
     course_map = {}
-    for course in courses_enrolled.objects.all():
-        if course.username == current_user:
-            enrolled.append(course)
+    for courses in courses_enrolled.objects.all():
+        if courses.username == current_user:
+            enrolled.append(courses)
     for q in quiz.objects.all():
         print(q.course_name)
         for e in enrolled:
