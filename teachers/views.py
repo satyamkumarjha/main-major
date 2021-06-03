@@ -15,4 +15,4 @@ def teacherView(request):
             if c.instructor_name == i.instructor_name:
                 new_list.append(c.course_name)
         course_list.append(new_list)
-    return render(request,'teachers.html',{'inst':instructor.objects.all(),'courses':course_list,'log':loggen_in, 'u':request.user})
+    return render(request,'instructors_new.html',{'inst':instructor.objects.all(),'courses':course_list,'log':loggen_in, 'u':request.user})
