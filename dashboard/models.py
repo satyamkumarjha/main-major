@@ -7,13 +7,13 @@ from django.contrib.auth.models import User
 
 class student_details(models.Model):
     username = models.ForeignKey(User,default=1,on_delete=models.SET_DEFAULT)
-    dob = models.DateField(null=True)
-    name = models.CharField(null=True,max_length=300)
-    college = models.CharField(max_length=300,null=True)
-    branch = models.CharField(max_length=300,null=True)
-    email = models.CharField(max_length=300,null=True)
-    phone = models.CharField(max_length=11,null=True)
-    photo = models.ImageField(blank = True,null=True)
+    dob = models.DateField(null=True,blank=True)
+    name = models.CharField(null=True,max_length=300,blank=True)
+    college = models.CharField(max_length=300,null=True,blank=True)
+    branch = models.CharField(max_length=300,null=True,blank=True)
+    email = models.CharField(max_length=300,null=True,blank=True)
+    phone = models.CharField(max_length=11,null=True,blank=True)
+    photo = models.ImageField(blank = True,null=True,)
     courses = models.TextField(null=True,blank=True)
 
 class quiz_scores(models.Model):
