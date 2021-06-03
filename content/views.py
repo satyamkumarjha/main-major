@@ -78,6 +78,8 @@ def enroll_single_slug(request,single_slug):
                 current_course = c.course_name
                 instr = c.instructor_name
                 course_det = c
+                course_details = c.course_info
+
         current_tutorials = []
         for t in tutorials.objects.all():
             print(current_course,t.course_name)
@@ -92,7 +94,7 @@ def enroll_single_slug(request,single_slug):
         current_user = request.user
         temp = courses_enrolled(username = current_user,course_name = course_det)
         temp.save()
-        return render(request,'tutorials.html',context={'tuts':current_tutorials,'ins':instructor_details,'course':current_course})
+        return render(request,'tut_display.html',context={'tuts':current_tutorials,'instructor':instr,'course':current_course,'course_details':course_details})
 
 
 def test(request):
