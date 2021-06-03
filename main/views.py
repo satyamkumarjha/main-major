@@ -13,7 +13,7 @@ def homepage(request):
     for r in course_reviews.objects.all():
         if r != course_reviews.objects.first():
             rev.append(r)
-    return render(request,'home_new.html',context={'rev':rev,'start':course_reviews.objects.first(),'log':loggen_in, 'u':request.user})
+    return render(request,'home_new_new.html',context={'rev':rev,'start':course_reviews.objects.first(),'log':loggen_in, 'u':request.user})
 
 def contact(request):
     return render(request,'contact.html')

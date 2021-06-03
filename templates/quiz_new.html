@@ -10,11 +10,11 @@
 <div class="container my-3">
     <p style="text-align: center; margin: 0px;"><strong>Please give necessary permission in case webcam feed not visible and Reload</strong></p>
     <div class="container " style="padding: 0px; margin: 0px auto; width: 542px; height: 407px; border: 1px #333 solid;">
-        <img src="{% url 'proctoring:video_feed' %}" style="height: 35px; width: 80px; border-radius: 20px;" alt="logo">
+      <video id="videoElement" autoplay="true" style="width: 540px; height: 405px; background-color: #666;"></video>
     </div>
 </div>
 
-<!--<script type="text/javascript">
+<script type="text/javascript">
     const video = document.querySelector("#videoElement");
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
         navigator.mediaDevices.getUserMedia({video: {facingMode: "user"}, audio: true}).then((stream) => {
@@ -22,7 +22,7 @@
             video.play();
         })
     }
-</script>-->
+</script>
 
 <!-- *! quiz form template start  -->
 
