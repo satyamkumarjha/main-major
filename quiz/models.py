@@ -23,4 +23,5 @@ class question(models.Model):
     option_two = models.TextField()
     option_three = models.TextField()
     option_four = models.TextField()
+    picture = models.ImageField(blank = True,null=True)
     answer = models.TextField()
