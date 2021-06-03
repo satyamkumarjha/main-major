@@ -10,7 +10,7 @@ from .camera import VideoCamera
 def homepage(request):
 	return render(
 					request,
-					"timepass.html",
+					"quiz_new.html",
 					)
 
 def gen(camera):
