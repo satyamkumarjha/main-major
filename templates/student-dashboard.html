@@ -125,7 +125,7 @@
                      </button>
                      </h5>
                   </div>
-				  {%for q in quizes%}
+				  {%for q,e in map%}
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                      <div class="card-body">
                         <!-- * this is the begining of the quiz-info-card -->
@@ -134,13 +134,13 @@
                               <div class="row mx-2">
                                  <div class="col-md-5 offset-md-1 my-3">
                                     <p class="font-weight-bold" style="display: inline;">Course: </p>
-                                    <h6 class="text-muted" style="display: inline;"> {{enrolled.course_name}}</h6>
+                                    <h6 class="text-muted" style="display: inline;"> {{e.course_name}}</h6>
                                  </div>
                                  <div class="col-md-5 offset-md-1 my-3">
                                     <p class="font-weight-bold" style="display: inline;">{{q.quiz_name}} </p>
                                  </div>
                               </div>
-                              <div class="row mx-2">
+                              <div class="row mx-auto">
                                  <div class="col-md-5 offset-md-1 my-3">
                                     <a href="/test/{{q.quiz_slug}}" class="btn btn-success">Attempt</a>
                                  </div>
