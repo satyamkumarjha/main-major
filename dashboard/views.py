@@ -5,6 +5,9 @@ from quiz.models import quiz
 # Create your views here.
 
 def view_dashboard(request):
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True
     current_user = request.user
     print(current_user)
     enrolled = []
@@ -24,4 +27,4 @@ def view_dashboard(request):
     print(target_student)
     print(enrolled)
     print(quizes)
-    return render(request,'student-dashboard.html',{'student':target_student,'courses':enrolled, 'quizes' : quizes})
+    return render(request,'student-dashboard.html',{'student':target_student,'courses':enrolled, 'quizes' : quizes,'log':loggen_in, 'u':request.user})

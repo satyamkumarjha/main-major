@@ -6,6 +6,9 @@ from dashboard.models import courses_enrolled
 
 
 def contentView(request):
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True
     var = {}
     for c in course.objects.all():
         ci = c.instructor_name
@@ -16,9 +19,12 @@ def contentView(request):
     return render(
     request = request,
     template_name='courses_new.html' ,
-    context= {"var":var})
+    context= {"var":var,'log':loggen_in, 'u':request.user})
 
 def single_slug(request,single_slug):
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True
     courses = [i.course_slug for i in course.objects.all()]
     #print(courses)
 
@@ -42,9 +48,12 @@ def single_slug(request,single_slug):
                 instructor_details = i
         #print('current course:',current_course)
         #print(current_tutorials)
-        return render(request,'tut_display.html',context={'tuts':current_tutorials,'instructor':instr,'course':current_course,'course_details':course_details})
+        return render(request,'tut_display.html',context={'tuts':current_tutorials,'instructor':instr,'course':current_course,'course_details':course_details,'log':loggen_in, 'u':request.user})
 
 def detailed_single_slug(request,single_slug):
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True
     courses = [i.course_slug for i in course.objects.all()]
     if single_slug in courses:
         current_tutorials = []
@@ -62,10 +71,13 @@ def detailed_single_slug(request,single_slug):
         for i in instructor.objects.all():
             if i.instructor_name == instr:
                 instructor_details = i   
-    return render(request,'course_details.html',{'course':course_det,'ins':instructor_details})
+    return render(request,'course_details.html',{'course':course_det,'ins':instructor_details,'log':loggen_in, 'u':request.user})
 
 
 def enroll_single_slug(request,single_slug):
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True
     courses = [i.course_slug for i in course.objects.all()]
     #print(courses)
 
@@ -94,7 +106,7 @@ def enroll_single_slug(request,single_slug):
         current_user = request.user
         temp = courses_enrolled(username = current_user,course_name = course_det)
         temp.save()
-        return render(request,'tut_display.html',context={'tuts':current_tutorials,'instructor':instr,'course':current_course,'course_details':course_details})
+        return render(request,'tut_display.html',context={'tuts':current_tutorials,'instructor':instr,'course':current_course,'course_details':course_details,'log':loggen_in, 'u':request.user})
 
 
 def test(request):

@@ -9,6 +9,9 @@ def dispTest(request,single_slug):
     #if request.method == "POST":
     #    print('true')
     #if request.method == "POST":
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True
     for q in quiz.objects.all():
         if q.quiz_slug == single_slug:
             q_obj = q
@@ -22,11 +25,14 @@ def dispTest(request,single_slug):
                 questions.append(q)
     #print(questions)
     #print(title)
-    return render(request,'test.html',{'question':questions,'title':title,'single_slug':slug})
+    return render(request,'test.html',{'question':questions,'title':title,'single_slug':slug,'log':loggen_in, 'u':request.user})
 
 def result(request,single_slug):
     #print(request.POST)
     #print(request.POST[str(1)])
+    loggen_in = False
+    if request.user.is_authenticated:
+        loggen_in = True
     for q in quiz.objects.all():
         if q.quiz_slug == single_slug:
             q_obj = q
@@ -46,4 +52,4 @@ def result(request,single_slug):
             pass
     temp = quiz_scores(username = current_user, course_name = c_obj, quiz_name = q_obj,score = total)
     temp.save()
-    return render(request,'score.html',{'total':total})
+    return render(request,'score.html',{'total':total,'log':loggen_in, 'u':request.user})
