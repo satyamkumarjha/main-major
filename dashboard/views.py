@@ -28,4 +28,6 @@ def view_dashboard(request):
         if student.username == current_user:
             target_student = student
 
-    return render(request,'student-dashboard.html',{'student':target_student,'map':main_map,'courses':enrolled, 'quizes' : quizes,'log':loggen_in, 'u':request.user})
+    return render(request,'student-dashboard.html',{'student':target_student,'map':main_map,'log':loggen_in, 'u':request.user})
+
+#'courses':enrolled, 'quizes' : quizes
