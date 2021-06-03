@@ -25,7 +25,7 @@ def dispTest(request,single_slug):
                 questions.append(q)
     #print(questions)
     #print(title)
-    return render(request,'test.html',{'question':questions,'title':title,'single_slug':slug,'log':loggen_in, 'u':request.user})
+    return render(request,'quiz_new.html',{'question':questions,'title':title,'single_slug':slug,'log':loggen_in, 'u':request.user})
 
 def result(request,single_slug):
     #print(request.POST)
